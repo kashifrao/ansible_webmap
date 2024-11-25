@@ -1,0 +1,12 @@
+
+    - name: Install webmap
+      docker_container:
+        name: webmap
+        state: started
+        published_ports:
+          - "7000:8000"         
+        image: reborntc/webmap
+        restart: true
+        volumes:
+          - "/srv/shared-mgmt/external-softwares/nmap_result/:/opt/xml"
+      become_user: root
